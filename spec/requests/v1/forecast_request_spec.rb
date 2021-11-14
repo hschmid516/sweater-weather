@@ -16,8 +16,11 @@ describe 'items API', :vcr do
     expect(attr).to be_a(Hash)
     expect(attr[:current_weather]).to be_a(Hash)
     expect(attr[:current_weather][:datetime]).to be_a(String)
+    expect(attr[:current_weather][:datetime].length).to eq(29)
     expect(attr[:current_weather][:sunrise]).to be_a(String)
+    expect(attr[:current_weather][:sunrise].length).to eq(29)
     expect(attr[:current_weather][:sunset]).to be_a(String)
+    expect(attr[:current_weather][:sunset].length).to eq(29)
     expect(attr[:current_weather][:temperature]).to be_a(Float)
     expect(attr[:current_weather][:feels_like]).to be_a(Float)
     expect(attr[:current_weather][:humidity]).to be_an(Integer)
@@ -39,8 +42,11 @@ describe 'items API', :vcr do
 
     attr[:daily_weather].each do |day|
       expect(day[:date]).to be_a(String)
+      expect(day[:date].length).to eq(10)
       expect(day[:sunrise]).to be_a(String)
+      expect(day[:sunrise].length).to eq(29)
       expect(day[:sunset]).to be_a(String)
+      expect(day[:sunset].length).to eq(29)
       expect(day[:max_temp]).to be_a(Float)
       expect(day[:min_temp]).to be_a(Float)
       expect(day[:conditions]).to be_a(String)
@@ -69,6 +75,7 @@ describe 'items API', :vcr do
 
     attr[:hourly_weather].each do |hour|
       expect(hour[:time]).to be_a(String)
+      expect(hour[:time].length).to eq(8)
       expect(hour[:temperature]).to be_a(Float)
       expect(hour[:conditions]).to be_a(String)
       expect(hour[:icon]).to be_a(String)
