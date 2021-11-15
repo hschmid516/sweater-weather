@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe 'activities' do
+describe 'activities', :vcr do
   it 'gets weather and activities for a destination' do
     get '/api/v1/activities?destination=chicago,il'
 
-    expect(response).to have_http_status(:created)
+    expect(response).to be_successful
     expect(json).to be_a(Hash)
     expect(json[:data]).to be_a(Hash)
     expect(json[:data][:id]).to be(nil)
