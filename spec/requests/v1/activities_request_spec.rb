@@ -23,7 +23,7 @@ describe 'activities', :vcr do
       expect(activity[:title]).to be_a(String)
       expect(activity[:type]).to be_a(String)
       expect(activity[:participants]).to be_an(Integer)
-      expect(activity[:price]).to be_an(Float)
+      expect(activity[:price]).to be_a(Float).or be_an(Integer)
     end
 
     expect(attr).to_not have_key(:created_at)
