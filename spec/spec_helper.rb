@@ -944,3 +944,71 @@ def weather_data
     :uvi=>2}],
     }
 end
+
+def image_data
+  { :id=>"ccnTPNdjJw8",
+    :created_at=>"2021-08-23T12:47:55-04:00",
+    :updated_at=>"2021-11-14T14:28:06-05:00",
+    :promoted_at=>nil,
+    :width=>3024,
+    :height=>2004,
+    :color=>"#262626",
+    :blur_hash=>"LE8OuGMdHXyXtltmVsVsXTt7bcVs",
+    :description=>nil,
+    :alt_description=>"green pine tree covered with snow",
+    :urls=>
+     {:raw=>"https://images.unsplash.com/photo-1629737237147-7aee70ee8cf6?ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng&ixlib=rb-1.2.1",
+      :full=>
+       "https://images.unsplash.com/photo-1629737237147-7aee70ee8cf6?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng&ixlib=rb-1.2.1&q=85",
+      :regular=>
+       "https://images.unsplash.com/photo-1629737237147-7aee70ee8cf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng&ixlib=rb-1.2.
+1&q=80&w=1080",
+      :small=>
+       "https://images.unsplash.com/photo-1629737237147-7aee70ee8cf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng&ixlib=rb-1.2.
+1&q=80&w=400",
+      :thumb=>
+       "https://images.unsplash.com/photo-1629737237147-7aee70ee8cf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng&ixlib=rb-1.2.
+1&q=80&w=200"},
+    :links=>
+     {:self=>"https://api.unsplash.com/photos/ccnTPNdjJw8",
+      :html=>"https://unsplash.com/photos/ccnTPNdjJw8",
+      :download=>"https://unsplash.com/photos/ccnTPNdjJw8/download?ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng",
+      :download_location=>"https://api.unsplash.com/photos/ccnTPNdjJw8/download?ixid=MnwyNzU0ODR8MHwxfHNlYXJjaHwxfHxwb3J0bGFuZCUyQ21lfGVufDB8fHx8MTYzNjkyODE5Ng"},
+    :categories=>[],
+    :likes=>2,
+    :liked_by_user=>false,
+    :current_user_collections=>[],
+    :sponsorship=>nil,
+    :topic_submissions=>{:wallpapers=>{:status=>"rejected"}, :nature=>{:status=>"rejected"}, :film=>{:status=>"rejected"}},
+    :user=>
+     {:id=>"FcCYiVTyW-o",
+      :updated_at=>"2021-11-10T22:22:40-05:00",
+      :username=>"itsallgoodie",
+      :name=>"Christopher Goodwin",
+      :first_name=>"Christopher",
+      :last_name=>"Goodwin",
+      :twitter_username=>"itsallgoodie",
+      :portfolio_url=>"https://christophergoodwin.me",
+      :bio=>"Web Developer and Amateur Photographer",
+      :location=>"Portland, ME",
+      :links=>
+       {:self=>"https://api.unsplash.com/users/itsallgoodie",
+        :html=>"https://unsplash.com/@itsallgoodie",
+        :photos=>"https://api.unsplash.com/users/itsallgoodie/photos",
+        :likes=>"https://api.unsplash.com/users/itsallgoodie/likes",
+        :portfolio=>"https://api.unsplash.com/users/itsallgoodie/portfolio",
+        :following=>"https://api.unsplash.com/users/itsallgoodie/following",
+        :followers=>"https://api.unsplash.com/users/itsallgoodie/followers"},
+      :profile_image=>
+       {:small=>"https://images.unsplash.com/profile-1630504220843-a3faca3f7f04image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+        :medium=>"https://images.unsplash.com/profile-1630504220843-a3faca3f7f04image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+        :large=>"https://images.unsplash.com/profile-1630504220843-a3faca3f7f04image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128"},
+      :instagram_username=>"itsallgoodie",
+      :total_collections=>0,
+      :total_likes=>10,
+      :total_photos=>15,
+      :accepted_tos=>true,
+      :for_hire=>false,
+      :social=>{:instagram_username=>"itsallgoodie", :portfolio_url=>"https://christophergoodwin.me", :twitter_username=>"itsallgoodie", :paypal_email=>nil}},
+    :tags=>[{:type=>"search", :title=>"portland"}, {:type=>"search", :title=>"me"}, {:type=>"search", :title=>"usa"}]}
+end
