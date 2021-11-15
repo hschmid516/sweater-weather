@@ -14,4 +14,13 @@ describe ActivityFacade, :vcr do
     expect(activities.activities.first[:participants]).to be_an(Integer)
     expect(activities.activities.first[:price]).to be_an(Integer).or be_a(Float)
   end
+
+  it 'gets type of activity based on weather' do
+    params1 = { summary: 'cloudy', temp: 70 }
+    params2 = { summary: 'cloudy', temp: 55 }
+    params3 = { summary: 'cloudy', temp: 45 }
+    expect(ActivityFacade.send(:activity_params, params1)).to eq('recreational')
+    expect(ActivityFacade.send(:activity_params, params2)).to eq('busywork')
+    expect(ActivityFacade.send(:activity_params, params3)).to eq('cooking')
+  end
 end
