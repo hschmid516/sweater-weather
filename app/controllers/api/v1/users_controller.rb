@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :verify_json
+  
   # def index
   #   users = User.all
   #   render json: UserSerializer.new(users)
