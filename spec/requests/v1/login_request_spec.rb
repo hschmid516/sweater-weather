@@ -19,13 +19,20 @@ describe 'user login' do
     expect(json[:data][:attributes]).to_not have_key(:password_digest)
   end
 
+  it 'cant call endpoint with params in URL' do
+    post "/api/v1/sessions?email=#{user.email}&password=#{user.password}"
+
+    expect(response).to have_http_status(:bad_request)
+    expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+  end
+
   it 'has 404 error and message if bad password' do
     user_params = {
       email: user.email,
       password: 'wrongpassword'
     }
 
-    post '/api/v1/sessions', params: user_params
+    post '/api/v1/sessions', params: user_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })
@@ -36,7 +43,7 @@ describe 'user login' do
       password: user.password
     }
 
-    post '/api/v1/sessions', params: user_params
+    post '/api/v1/sessions', params: user_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })
