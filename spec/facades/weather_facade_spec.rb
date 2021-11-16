@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe WeatherFacade, :vcr do
   it 'gets forcast for city' do
-    forecast = WeatherFacade.forecast('Portland, ME')
+    forecast = WeatherFacade.forecast(Forecast, 'Portland, ME')
 
     expect(forecast).to be_a(Forecast)
     expect(forecast.id).to be(nil)
