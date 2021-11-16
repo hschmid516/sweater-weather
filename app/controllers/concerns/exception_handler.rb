@@ -21,5 +21,11 @@ module ExceptionHandler
           message: 'Credentials are missing or incorrect',
         }, status: 401
     end
+
+    def bad_format
+      render json: {
+          message: 'Email and password must be sent as JSON payload in body',
+        }, status: 400
+    end
   end
 end
