@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 describe 'road trip API', :vcr do
-  # before :each do
-  #   post '/api/v1/road_trip'
-  # end
+  let!(:user) { create(:user) }
 
   it 'posts a road trip' do
     trip_params = {
       origin: "Denver,CO",
       destination: "Pueblo,CO",
-      api_key: "K7HY4Q5swYoN8NnLCMUCuq2T"
+      api_key: user.api_key
     }
     post '/api/v1/road_trips', params: trip_params, as: :json
 
@@ -35,9 +33,51 @@ describe 'road trip API', :vcr do
   end
 
   it 'cant call endpoint with params in URL' do
-    post "/api/v1/road_trips?origin=Denver,CO&destination=Pueblo,CO&api_keyK7HY4Q5swYoN8NnLCMUCuq2T"
+    post "/api/v1/road_trips?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
 
     expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+  end
+
+  it 'returns impossible if bad route' do
+    trip_params = {
+      origin: "Denver,CO",
+      destination: "London,UK",
+      api_key: user.api_key
+    }
+    post '/api/v1/road_trips', params: trip_params, as: :json
+
+    expect(response).to be_successful
+    expect(json).to be_a(Hash)
+    expect(json[:data]).to be_a(Hash)
+    expect(json[:data][:id]).to be nil
+    expect(json[:data][:type]).to eq('road_trip')
+    expect(json[:data][:attributes][:travel_time]).to eq('impossible route')
+    expect(json[:data][:attributes][:weather_at_eta]).to eq(nil)
+  end
+
+  it 'returns 401 error if api key is missing' do
+    trip_params = {
+      origin: "Denver,CO",
+      destination: "Pueblo,CO",
+    }
+
+    post '/api/v1/road_trips', params: trip_params, as: :json
+
+    expect(response).to have_http_status(:unauthorized)
+    expect(json).to eq({ message: 'Credentials are missing or incorrect' })
+  end
+
+  it 'returns 401 error if api key is incorrect' do
+    trip_params = {
+      origin: "Denver,CO",
+      destination: "Pueblo,CO",
+      api_key: "qwertyuiop"
+    }
+
+    post '/api/v1/road_trips', params: trip_params, as: :json
+
+    expect(response).to have_http_status(:unauthorized)
+    expect(json).to eq({ message: 'Credentials are missing or incorrect' })
   end
 end
