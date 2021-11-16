@@ -6,10 +6,11 @@ class TripForecast
   end
 
   def get_forecast(data, eta)
-    data.filter_map do |hour|
+
+    data.each_with_object({}) do |hour, acc|
       if hour[:dt] == eta
-        { temperature: hour[:temp],
-          conditions: hour[:weather].first[:description] }
+        acc[:temperature] = hour[:temp]
+        acc[:conditions] = hour[:weather].first[:description]
       end
     end
   end
