@@ -27,7 +27,7 @@ describe 'user registation' do
       password_confirmation: user.password_confirmation
     }
 
-    post '/api/v1/users', params: user_params, as: :json
+    post '/api/v1/users', params: user_params
 
     expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: ["Email has already been taken"] })
@@ -40,7 +40,7 @@ describe 'user registation' do
       password_confirmation: 'wrongpassword'
     }
 
-    post '/api/v1/users', params: user_params, as: :json
+    post '/api/v1/users', params: user_params
 
     expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: ["Password confirmation doesn't match Password"] })
@@ -52,7 +52,7 @@ describe 'user registation' do
       password_confirmation: 'password'
     }
 
-    post '/api/v1/users', params: user_params, as: :json
+    post '/api/v1/users', params: user_params
 
     expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: ["Email can't be blank"] })
