@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :forecast, only: :index
       resources :backgrounds, only: :index
-      scope constraints: { format: :json} do
+      scope constraints: { format: :json } do
         resources :users, only: :create
         resources :sessions, only: :create
+        resources :road_trips, only: :create
       end
     end
   end
