@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
+  before_action :verify_json
+  
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
