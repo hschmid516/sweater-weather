@@ -1,11 +1,19 @@
 class RoadTrip
-  attr_reader :id, :start_city, :end_city, :travel_time, :weather_at_eta
+  attr_reader :id, :start_city, :end_city
 
-  def initialize(start, end_city, travel_time, weather)
+  def initialize(start, end_city, time, weather = nil)
     @start_city = start.gsub(/,/, ', ')
     @end_city = end_city.gsub(/,/, ', ')
-    @travel_time = Time.at(travel_time).utc.strftime "%H:%M"
-    @weather_at_eta = { temperature: weather.forecast[:temperature],
-                 conditions: weather.forecast[:conditions] }
+    @time = time
+    @weather = weather
+  end
+
+  def travel_time
+    @time.is_a?(Integer) ? (Time.at(@time).utc.strftime "%H:%M") : @time
+  end
+
+  def weather_at_eta
+    { temperature: @weather.forecast[:temperature],
+      conditions: @weather.forecast[:conditions] } if @weather
   end
 end
