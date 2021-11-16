@@ -32,7 +32,7 @@ describe WeatherService, :vcr do
   end
 
   it 'returns lat long from location' do
-    lat_long = WeatherService.find_lat_long('Portland, ME')
+    lat_long = MapService.find_lat_long('Portland, ME')
 
     expect(lat_long).to be_a(Hash)
     expect(lat_long.length).to eq(3)
