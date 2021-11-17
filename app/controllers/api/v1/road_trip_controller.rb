@@ -1,4 +1,4 @@
-class Api::V1::RoadTripsController < ApplicationController
+class Api::V1::RoadTripController < ApplicationController
   before_action :verify_api_key, only: :create
 
   def create

@@ -11,7 +11,7 @@ describe 'user registation' do
     }
 
     post '/api/v1/users', params: user_params, as: :json
-
+    
     expect(response).to have_http_status(:created)
     expect(json[:data][:attributes][:email]).to eq(user_params[:email])
     expect(json[:data][:attributes][:api_key]).to be_a(String)

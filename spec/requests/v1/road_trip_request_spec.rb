@@ -9,7 +9,7 @@ describe 'road trip API', :vcr do
       destination: "Pueblo,CO",
       api_key: user.api_key
     }
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to be_successful
     expect(json).to be_a(Hash)
@@ -33,7 +33,7 @@ describe 'road trip API', :vcr do
   end
 
   it 'cant call endpoint with params in URL' do
-    post "/api/v1/road_trips?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
+    post "/api/v1/road_trip?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
 
     expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
@@ -45,7 +45,7 @@ describe 'road trip API', :vcr do
       destination: "London,UK",
       api_key: user.api_key
     }
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to be_successful
     expect(json).to be_a(Hash)
@@ -62,7 +62,7 @@ describe 'road trip API', :vcr do
       destination: "Pueblo,CO",
     }
 
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })
@@ -75,7 +75,7 @@ describe 'road trip API', :vcr do
       api_key: "qwertyuiop"
     }
 
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })
