@@ -2,7 +2,8 @@ class Api::V1::RoadTripController < ApplicationController
   before_action :verify_api_key, only: :create
 
   def create
-    trip = RoadTripFacade.plan_trip(params[:origin], params[:destination])
+    params[:units] ||= 'imperial'
+    trip = RoadTripFacade.plan_trip(params[:origin], params[:destination], params[:units])
     render json: RoadTripSerializer.new(trip)
   end
 
