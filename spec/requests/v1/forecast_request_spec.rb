@@ -1,11 +1,9 @@
 require 'rails_helper'
 
-describe 'items API', :vcr do
-  before :each do
+describe 'forecast API', :vcr do
+  it 'gets forecasts' do
     get '/api/v1/forecast?location=portland,me'
-  end
 
-  it 'gets items' do
     expect(response).to be_successful
     expect(json).to be_a(Hash)
     expect(json[:data]).to be_a(Hash)
@@ -96,5 +94,19 @@ describe 'items API', :vcr do
 
     expect(attr).to_not have_key(:created_at)
     expect(attr).to_not have_key(:updated_at)
+  end
+
+  it 'returns 400 error and message if params missing' do
+    get '/api/v1/forecast'
+
+    expect(response). to have_http_status(:bad_request)
+    expect(json).to eq({ message: 'Location is missing or empty' })
+  end
+
+  it 'returns 400 error and message if params empty' do
+    get '/api/v1/forecast?location='
+
+    expect(response). to have_http_status(:bad_request)
+    expect(json).to eq({ message: 'Location is missing or empty' })
   end
 end
