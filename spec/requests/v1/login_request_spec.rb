@@ -23,7 +23,7 @@ describe 'user login' do
     post "/api/v1/sessions?email=#{user.email}&password=#{user.password}"
 
     expect(response).to have_http_status(:bad_request)
-    expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+    expect(json).to eq({ message: 'Params must be sent as JSON payload in body' })
   end
 
   it 'has 404 error and message if bad password' do

@@ -24,7 +24,7 @@ describe 'user registation' do
     post "/api/v1/users?email=#{user.email}&password=#{user.password}&password_confirmation#{user.password_confirmation}"
 
     expect(response).to have_http_status(:bad_request)
-    expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+    expect(json).to eq({ message: 'Params must be sent as JSON payload in body' })
   end
 
   it 'has 400 error and message if email already taken' do

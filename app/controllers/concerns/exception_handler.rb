@@ -24,7 +24,7 @@ module ExceptionHandler
 
     def bad_format
       render json: {
-          message: 'Email and password must be sent as JSON payload in body',
+          message: 'Params must be sent as JSON payload in body',
         }, status: 400
     end
 

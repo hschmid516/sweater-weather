@@ -36,7 +36,7 @@ describe 'road trip API', :vcr do
     post "/api/v1/road_trip?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
 
     expect(response).to have_http_status(:bad_request)
-    expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+    expect(json).to eq({ message: 'Params must be sent as JSON payload in body' })
   end
 
   it 'returns impossible if bad route' do
