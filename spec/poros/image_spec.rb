@@ -14,6 +14,7 @@ describe Background, :vcr do
         credit: {
           source: "https://unsplash.com/",
           user: "itsallgoodie",
+          name: "Christopher Goodwin",
           user_url: "https://api.unsplash.com/users/itsallgoodie"
         }
       }

@@ -13,7 +13,8 @@ class Background
       credit: {
         source: 'https://unsplash.com/',
         user: data[:user][:username],
-        user_url: data[:user][:links][:self]
+        user_url: data[:user][:links][:html],
+        name: data[:user][:name]
       }
     }
   end
