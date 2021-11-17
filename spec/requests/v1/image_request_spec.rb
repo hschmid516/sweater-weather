@@ -10,7 +10,7 @@ describe 'image API', :vcr do
     expect(json).to be_a(Hash)
     expect(json[:data]).to be_a(Hash)
     expect(json[:data][:id]).to be nil
-    expect(json[:data][:type]).to eq('background')
+    expect(json[:data][:type]).to eq('image')
 
     attr = json[:data][:attributes]
     expect(attr).to be_a(Hash)
