@@ -9,6 +9,6 @@ describe ImageFacade, :vcr do
     expect(image.image).to be_a(Hash)
     expect(image.image.size).to eq(3)
     expect(image.image[:credit]).to be_a(Hash)
-    expect(image.image[:credit].size).to eq(3)
+    expect(image.image[:credit].size).to eq(4)
   end
 end

@@ -5,11 +5,11 @@ describe 'road trip API', :vcr do
 
   it 'posts a road trip' do
     trip_params = {
-      origin: "Denver,CO",
-      destination: "Pueblo,CO",
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO',
       api_key: user.api_key
     }
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to be_successful
     expect(json).to be_a(Hash)
@@ -33,19 +33,19 @@ describe 'road trip API', :vcr do
   end
 
   it 'cant call endpoint with params in URL' do
-    post "/api/v1/road_trips?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
+    post "/api/v1/road_trip?origin=Denver,CO&destination=Pueblo,CO&api_key=#{user.api_key}"
 
     expect(response).to have_http_status(:bad_request)
-    expect(json).to eq({ message: 'Email and password must be sent as JSON payload in body' })
+    expect(json).to eq({ message: 'Params must be sent as JSON payload in body' })
   end
 
   it 'returns impossible if bad route' do
     trip_params = {
-      origin: "Denver,CO",
-      destination: "London,UK",
+      origin: 'Denver,CO',
+      destination: 'London,UK',
       api_key: user.api_key
     }
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to be_successful
     expect(json).to be_a(Hash)
@@ -58,11 +58,11 @@ describe 'road trip API', :vcr do
 
   it 'returns 401 error if api key is missing' do
     trip_params = {
-      origin: "Denver,CO",
-      destination: "Pueblo,CO",
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO'
     }
 
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })
@@ -70,12 +70,12 @@ describe 'road trip API', :vcr do
 
   it 'returns 401 error if api key is incorrect' do
     trip_params = {
-      origin: "Denver,CO",
-      destination: "Pueblo,CO",
-      api_key: "qwertyuiop"
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO',
+      api_key: 'qwertyuiop'
     }
 
-    post '/api/v1/road_trips', params: trip_params, as: :json
+    post '/api/v1/road_trip', params: trip_params, as: :json
 
     expect(response).to have_http_status(:unauthorized)
     expect(json).to eq({ message: 'Credentials are missing or incorrect' })

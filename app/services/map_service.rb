@@ -1,6 +1,6 @@
 class MapService
   class << self
-    MAP_URL = "http://www.mapquestapi.com"
+    MAP_URL = 'http://www.mapquestapi.com'
 
     def find_lat_long(location)
       ApiClient.get_data("#{MAP_URL}/geocoding/v1/address?key=#{ENV['MAP_KEY']}&location=#{location}&maxResults=1")

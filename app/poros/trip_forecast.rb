@@ -6,7 +6,6 @@ class TripForecast
   end
 
   def get_forecast(data, eta)
-
     data.each_with_object({}) do |hour, acc|
       if hour[:dt] == eta
         acc[:temperature] = hour[:temp]

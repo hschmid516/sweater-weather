@@ -6,7 +6,7 @@ describe TripForecast do
     expect(forecast).to be_a(TripForecast)
     expect(forecast.forecast).to eq(
       {
-        conditions: "scattered clouds",
+        conditions: 'scattered clouds',
         temperature: 72.84
       }
     )

@@ -7,9 +7,9 @@ class RoadTripFacade
     end
 
     private
-    
+
     def verify_time(time)
-      time ? time : 'impossible route'
+      time || 'impossible route'
     end
 
     def eta(travel_time)

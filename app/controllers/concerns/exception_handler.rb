@@ -12,20 +12,26 @@ module ExceptionHandler
 
     def bad_request(object)
       render json: {
-          message: object.errors.full_messages,
-        }, status: 400
+        message: object.errors.full_messages
+      }, status: 400
     end
 
     def unauthorized
       render json: {
-          message: 'Credentials are missing or incorrect',
-        }, status: 401
+        message: 'Credentials are missing or incorrect'
+      }, status: 401
     end
 
     def bad_format
       render json: {
-          message: 'Email and password must be sent as JSON payload in body',
-        }, status: 400
+        message: 'Params must be sent as JSON payload in body'
+      }, status: 400
+    end
+
+    def bad_params
+      render json: {
+        message: 'Location is missing or empty'
+      }, status: 400
     end
   end
 end

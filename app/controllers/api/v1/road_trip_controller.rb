@@ -1,4 +1,4 @@
-class Api::V1::RoadTripsController < ApplicationController
+class Api::V1::RoadTripController < ApplicationController
   before_action :verify_api_key, only: :create
 
   def create
@@ -10,6 +10,6 @@ class Api::V1::RoadTripsController < ApplicationController
 
   def verify_api_key
     user = User.find_by(api_key: params[:api_key])
-    unauthorized if !user
+    unauthorized unless user
   end
 end
