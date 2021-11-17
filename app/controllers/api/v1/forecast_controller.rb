@@ -3,7 +3,8 @@ class Api::V1::ForecastController < ApplicationController
   before_action :verify_params
 
   def index
-    forecast = WeatherFacade.forecast(Forecast, { location: params[:location] })
+    params[:units] ||= 'imperial'
+    forecast = WeatherFacade.forecast(Forecast, params[:location], params[:units])
     render json: ForecastSerializer.new(forecast)
   end
 end

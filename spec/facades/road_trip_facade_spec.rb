@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe RoadTripFacade, :vcr do
   it 'creates a trip object' do
-    trip = RoadTripFacade.plan_trip('Portland,ME', 'Boston,MA')
+    trip = RoadTripFacade.plan_trip('Portland,ME', 'Boston,MA', 'imperial')
 
     expect(trip).to be_a(RoadTrip)
     expect(trip.id).to be(nil)

@@ -4,7 +4,7 @@ describe WeatherService, :vcr do
   let!(:lat_lng) { { lat: 43.659218, lng: -70.256519 } }
 
   it 'returns weather forecast data' do
-    forecast = WeatherService.forecast(lat_lng)
+    forecast = WeatherService.forecast(lat_lng, 'imperial')
 
     expect(forecast).to be_a(Hash)
     expect(forecast[:current]).to be_a(Hash)
