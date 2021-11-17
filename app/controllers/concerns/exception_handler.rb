@@ -27,5 +27,11 @@ module ExceptionHandler
           message: 'Email and password must be sent as JSON payload in body',
         }, status: 400
     end
+
+    def bad_params
+      render json: {
+          message: 'Location is missing or empty',
+        }, status: 400
+    end
   end
 end
