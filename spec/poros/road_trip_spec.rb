@@ -10,6 +10,6 @@ describe RoadTrip do
     expect(forecast.start_city).to eq('Denver, CO')
     expect(forecast.end_city).to eq('Pueblo, CO')
     expect(forecast.travel_time).to eq('01:49')
-    expect(forecast.weather_at_eta).to eq({temperature: 72.84, conditions: "scattered clouds"})
+    expect(forecast.weather_at_eta).to eq({ temperature: 72.84, conditions: 'scattered clouds' })
   end
 end

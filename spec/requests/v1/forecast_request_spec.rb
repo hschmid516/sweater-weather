@@ -65,7 +65,6 @@ describe 'forecast API', :vcr do
       expect(day).to_not have_key(:pop)
       expect(day).to_not have_key(:rain)
       expect(day).to_not have_key(:uvi)
-
     end
 
     expect(attr[:hourly_weather]).to be_an(Array)
@@ -99,14 +98,14 @@ describe 'forecast API', :vcr do
   it 'returns 400 error and message if params missing' do
     get '/api/v1/forecast'
 
-    expect(response). to have_http_status(:bad_request)
+    expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Location is missing or empty' })
   end
 
   it 'returns 400 error and message if params empty' do
     get '/api/v1/forecast?location='
 
-    expect(response). to have_http_status(:bad_request)
+    expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Location is missing or empty' })
   end
 end

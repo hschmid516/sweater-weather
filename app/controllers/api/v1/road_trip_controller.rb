@@ -10,6 +10,6 @@ class Api::V1::RoadTripController < ApplicationController
 
   def verify_api_key
     user = User.find_by(api_key: params[:api_key])
-    unauthorized if !user
+    unauthorized unless user
   end
 end

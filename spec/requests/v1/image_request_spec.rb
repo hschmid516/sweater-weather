@@ -46,14 +46,14 @@ describe 'image API', :vcr do
   it 'returns 400 error and message if params missing' do
     get '/api/v1/backgrounds'
 
-    expect(response). to have_http_status(:bad_request)
+    expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Location is missing or empty' })
   end
 
   it 'returns 400 error and message if params empty' do
     get '/api/v1/backgrounds?location='
 
-    expect(response). to have_http_status(:bad_request)
+    expect(response).to have_http_status(:bad_request)
     expect(json).to eq({ message: 'Location is missing or empty' })
   end
 end

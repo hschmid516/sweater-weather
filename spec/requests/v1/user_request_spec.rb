@@ -5,13 +5,13 @@ describe 'user registation' do
 
   it 'creates a user' do
     user_params = {
-      email: "email@gmail.com",
-      password: "password",
-      password_confirmation: "password"
+      email: 'email@gmail.com',
+      password: 'password',
+      password_confirmation: 'password'
     }
 
     post '/api/v1/users', params: user_params, as: :json
-    
+
     expect(response).to have_http_status(:created)
     expect(json[:data][:attributes][:email]).to eq(user_params[:email])
     expect(json[:data][:attributes][:api_key]).to be_a(String)
@@ -37,7 +37,7 @@ describe 'user registation' do
     post '/api/v1/users', params: user_params, as: :json
 
     expect(response).to have_http_status(:bad_request)
-    expect(json).to eq({ message: ["Email has already been taken"] })
+    expect(json).to eq({ message: ['Email has already been taken'] })
   end
 
   it 'has 400 error and message if password mismatch' do
