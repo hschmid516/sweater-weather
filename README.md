@@ -207,7 +207,7 @@ Register a user
 - Content-Type: application/json
 - Accept: application/json
   
-  #### Request Body
+#### Request Body
   
   ```json
   {
