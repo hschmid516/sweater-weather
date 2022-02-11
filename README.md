@@ -124,7 +124,7 @@
 ## Roadmap
 
 <h3>GET /api/v1/forecast?location={location}</h3>
-
+#### Response
   ```json
   {
      "data": {
@@ -170,7 +170,7 @@
   ```
 
 <h3>GET /api/v1/backgrounds?location={location}</h3>
-
+#### Response
   ```json
   {
     "data": {
@@ -196,6 +196,7 @@
   Content-Type: application/json
     
   Accept: application/json
+  #### Request Body
   
   ```json
   {
@@ -204,11 +205,25 @@
      "password_confirmation": "password"
   }
   ```
+  #### Response
+  ```json
+  {
+     "data": {
+     "type": "users",
+     "id": "1",
+     "attributes": {
+       "email": "whatever@example.com",
+       "api_key": "jgn983hy48thw9begh98h4539h4"
+      }
+    }
+  }
+  ```
 
 <h3>POST /api/v1/sessions</h3>
   Content-Type: application/json
     
   Accept: application/json
+  #### Request Body
     
   ```json
   {
@@ -216,11 +231,25 @@
     "password": "password"
   }
   ```
+#### Response
+  ```json
+  {
+    "data": {
+      "type": "users",
+      "id": "1",
+      "attributes": {
+        "email": "whatever@example.com",
+        "api_key": "jgn983hy48thw9begh98h4539h4"
+      }
+    }
+  }
+  ```
 
 <h3>POST /api/v1/road_trip</h3>
   Content-Type: application/json
     
   Accept: application/json
+  #### Request Body
 
   ```json
   {
@@ -229,6 +258,25 @@
     "api_key": "53ZqhpECyRoKUheAX6v6hXCc"
   }
   ```
+  #### Response
+  ```json
+  {
+    "data": {
+      "id": null,
+      "type": "roadtrip",
+      "attributes": {
+        "start_city": "Denver, CO",
+        "end_city": "Estes Park, CO",
+        "travel_time": "2 hours, 13 minutes"
+        "weather_at_eta": {
+          "temperature": 59.4,
+          "conditions": "partly cloudy with a chance of meatballs"
+        }
+      }
+    }
+  }
+  ```
+  
 </br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
