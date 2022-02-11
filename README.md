@@ -125,6 +125,7 @@
 
 <h3>GET /api/v1/forecast?location={location}</h3>
 #### Response
+
   ```json
   {
      "data": {
@@ -171,6 +172,7 @@
 
 <h3>GET /api/v1/backgrounds?location={location}</h3>
 #### Response
+
   ```json
   {
     "data": {
@@ -206,6 +208,7 @@
   }
   ```
   #### Response
+  
   ```json
   {
      "data": {
@@ -232,6 +235,7 @@
   }
   ```
 #### Response
+
   ```json
   {
     "data": {
@@ -259,6 +263,7 @@
   }
   ```
   #### Response
+  
   ```json
   {
     "data": {
