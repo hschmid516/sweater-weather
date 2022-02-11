@@ -124,7 +124,9 @@
 ## Roadmap
 
 <h3>GET /api/v1/forecast?location={location}</h3>
+
 Get weather data for a given location
+
 #### Response
 
   ```json
@@ -172,7 +174,9 @@ Get weather data for a given location
   ```
 
 <h3>GET /api/v1/backgrounds?location={location}</h3>
+
 Get image for a given city
+
 #### Response
 
   ```json
@@ -197,7 +201,9 @@ Get image for a given city
   ```
 
 <h3>POST /api/v1/users</h3>
+
 Register a user
+
   Content-Type: application/json
     
   Accept: application/json
@@ -227,10 +233,13 @@ Register a user
   ```
 
 <h3>POST /api/v1/sessions</h3>
+
 User login
+
   Content-Type: application/json
     
   Accept: application/json
+  
 #### Request Body
     
   ```json
@@ -255,10 +264,13 @@ User login
   ```
 
 <h3>POST /api/v1/road_trip</h3>
+
 Create a road trip
+
   Content-Type: application/json
     
   Accept: application/json
+  
   #### Request Body
 
   ```json
