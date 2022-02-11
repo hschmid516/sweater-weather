@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
   <p>
-  This was a solo project completed during the final week of module 3 of 4 at Turing School of Software & Design. The goal of this project was to create a successful web application application to plan road trips. This app allows users to see the current weather for any given location, as well as the forecasted weather at the destination during the estimated time of arrival.
+  This was a solo project completed during the final week of module 3 of 4 at Turing School of Software & Design. The goal of this project was to create a successful web application to plan road trips. This app allows users to see the current weather for any given location, as well as the forecasted weather at the destination during the estimated time of arrival.
 
   This project was completed with a focus on service-oriented architecture. It was designed to aggregate data from multiple endpoints of three different external APIs, and expose a token-authenticated API that satisfied the requirements given from the front-end team.
   </p>
