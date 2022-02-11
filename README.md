@@ -268,7 +268,7 @@ Create a road trip
 - Content-Type: application/json
 - Accept: application/json
   
-  #### Request Body
+#### Request Body
 
   ```json
   {
@@ -277,7 +277,7 @@ Create a road trip
     "api_key": "53ZqhpECyRoKUheAX6v6hXCc"
   }
   ```
-  #### Response
+#### Response
   
   ```json
   {
