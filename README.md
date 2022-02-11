@@ -204,9 +204,8 @@ Get image for a given city
 
 Register a user
 
-  Content-Type: application/json
-    
-  Accept: application/json
+- Content-Type: application/json
+- Accept: application/json
   
   #### Request Body
   
@@ -236,9 +235,8 @@ Register a user
 
 User login
 
-  Content-Type: application/json
-    
-  Accept: application/json
+- Content-Type: application/json
+- Accept: application/json
   
 #### Request Body
     
@@ -267,9 +265,8 @@ User login
 
 Create a road trip
 
-  Content-Type: application/json
-    
-  Accept: application/json
+- Content-Type: application/json
+- Accept: application/json
   
   #### Request Body
 
